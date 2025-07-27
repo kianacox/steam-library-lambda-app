@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Steam Library Lambda App
 
-## Getting Started
+A full-stack web application that displays my Steam game library using AWS Lambda for backend data retrieval and Next.js for the frontend interface.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Frontend
+
+- **Next.js 15.4.4** - React framework with App Router
+- **React 19.1.0** - UI library
+- **TypeScript 5** - Type-safe JavaScript
+- **Sass** - CSS preprocessor for styling
+- **Turbopack** - Fast bundler for development
+
+### Backend
+
+- **AWS Lambda** - Serverless function for API calls
+- **Steam Web API** - External API for game data retrieval
+
+### Development Tools
+
+- **ESLint** - Code linting
+- **Next.js ESLint Config** - Recommended linting rules
+
+## 📋 Project Overview
+
+This is a simple full-stack application that:
+
+1. **Fetches Steam Library Data**: Uses an AWS Lambda function to retrieve details about games in my Steam library
+2. **Displays Game Information**: Shows game titles, playtime, and header images in a responsive grid layout
+
+### Key Features
+
+- **Responsive design** that works on desktop and mobile
+- **Error handling** with user-friendly error messages
+- **Loading states** for better user experience
+- **Modular component architecture** with reusable GameCard components
+
+### Architecture
+
+```
+Frontend (Next.js) -> API Gateway -> AWS Lambda -> Steam Web API
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18+
+- npm, yarn, pnpm, or bun
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone <repository-url>
+   cd steam-library-lambda-app
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies**
 
-## Deploy on Vercel
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Run the development server**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+
+### Available Scripts
+
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build the application for production
+- `npm run start` - Start the production server
+- `npm run lint` - Run ESLint to check code quality
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   └── GameCard/          # Reusable game card component
+│   ├── hooks/
+│   │   └── useGames.ts        # Custom hook for data fetching and caching
+│   ├── types/
+│   │   └── game.ts            # TypeScript interfaces
+│   └── page.tsx               # Main application page
+├── public/                    # Static assets
+└── ...
+```
+
+## 🔧 Configuration
+
+The application is configured to work with a specific AWS Lambda endpoint. If you need to modify the API endpoint, update the URL in `src/app/hooks/useGames.ts`.
